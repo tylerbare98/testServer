@@ -36,6 +36,9 @@ app.post("/", function(req, res){
             var farenheight = celsius * 9/5 + 32
             res.send(`The temperature in ${city} is ${farenheight} degrees Farenheit.`);
         });
+
+    })
+        
 })
 
 app.listen(port, () => {
