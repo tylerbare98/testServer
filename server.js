@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-const port = 3000;
+const port = 3000 || process.env.PORT; //process.end.PORT for this to work with Heroku & 3000 for local testing
 
 
 //how server responds when it gets a GET request
@@ -28,13 +28,19 @@ app.post("/", function(req, res){
         //console.log(r.statusCode);
     
         r.on('data', (d) => {
-            //this will parse the data into JSON
+            if(r.statusCode == 200){
+                //this will parse the data into JSON
             const data = JSON.parse(d);
     
             //this will display one section of the JSON file
             var celsius = data.main.temp;
             var farenheight = celsius * 9/5 + 32
             res.send(`The temperature in ${city} is ${farenheight} degrees Farenheit.`);
+            }
+            else{
+                console.log(r.statusCode)
+            }
+            
         });
 
     })
