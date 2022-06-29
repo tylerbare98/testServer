@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-const port = process.env.PORT || 3000; //process.end.PORT for this to work with Heroku & 3000 for local testing
+//const port = process.env.PORT || 3000; //process.end.PORT for this to work with Heroku & 3000 for local testing
 
 
 //how server responds when it gets a GET request
@@ -47,6 +47,6 @@ app.post("/", function(req, res){
         
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   
 })
