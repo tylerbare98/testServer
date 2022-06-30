@@ -9,6 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 //const port = process.env.PORT || 3000; //process.end.PORT for this to work with Heroku & 3000 for local testing
+//refer to heroku documentation on setting up server
 
 
 //how server responds when it gets a GET request
